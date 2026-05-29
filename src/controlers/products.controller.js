@@ -1,5 +1,7 @@
 import productsDAO from "../dao/products.dao.js";
+
 const productsControllers={};
+
 productsControllers.getAll=(req,res)=>{
     productsDAO.getAll() // Llamamos al método del DAO
         .then((products)=>{
@@ -13,6 +15,7 @@ productsControllers.getAll=(req,res)=>{
             });
         })
 };
+
 productsControllers.getOne=(req,res)=>{
     productsDAO
     .getOne(req.params.barcode)
@@ -29,7 +32,12 @@ productsControllers.getOne=(req,res)=>{
             .json({error: "An error ocurred while fetching the product"})
     });
 };
+
 productsControllers.insertOne = (req, res) => {
+    // --- SOLUCIÓN: Eliminamos los IDs vacíos enviados por Android ---
+    delete req.body._id;
+    delete req.body.id;
+
     const product = req.body;
     productsDAO
         .insertOne(product)
@@ -47,6 +55,7 @@ productsControllers.insertOne = (req, res) => {
                 .json({ error: "An error ocurred while inserting the product" });
         });
 };
+
 productsControllers.deleteOne = (req,res) => {
     productsDAO.deleteOne(req.params.barcode)
     .then((result) => {
@@ -60,6 +69,7 @@ productsControllers.deleteOne = (req,res) => {
         res.status(500).json({error: err})
     });
 };
+
 productsControllers.updateOne = (req,res) => {
     productsDAO.updateOne(req.params.barcode,req.body)
     .then(() => {
@@ -75,4 +85,5 @@ productsControllers.updateOne = (req,res) => {
         })
     });
 }
+
 export default productsControllers;
