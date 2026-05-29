@@ -2,37 +2,23 @@
   "name": "api-products",
   "version": "1.0.0",
   "description": "",
-<<<<<<< HEAD
   "main": "src/index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
     "start": "node src/index.js"
-=======
-  "main": "index.js",
-  "scripts": {
-    "dev": "nodemon src/index.js"
->>>>>>> 4ad4b904d9924a391b0eac2841ea221d00db727c
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "dependencies": {
-<<<<<<< HEAD
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^5.2.1",
     "mongoose": "^9.6.2",
-=======
-    "express": "^5.2.1",
->>>>>>> 4ad4b904d9924a391b0eac2841ea221d00db727c
     "morgan": "^1.10.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 4ad4b904d9924a391b0eac2841ea221d00db727c
