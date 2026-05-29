@@ -7,11 +7,13 @@ const app = express();
 app.use(express.json());
 app.use(morgan("dev"));
 
-//Routes
+app.get('/', (req, res) => {
+    res.status(200).send('Bienvenido a la API de Productos. El servidor está en línea y esperando peticiones.');
+});
 
+//Routes
 app.use(productsRoutes);
 
-//Start server 
+//Start server
 
 export default app;
-
